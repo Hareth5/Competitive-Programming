@@ -1,0 +1,6 @@
+.idea/
+PS/.idea/
+cmake-build-debug/
+*.exe
+input.txt
+PS/input.txt
