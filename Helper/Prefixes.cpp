@@ -12,9 +12,11 @@ struct PrefixSum2D {
         for (int i = 1; i < m; i++) {
             p[0][i] = p[0][i - 1] + a[0][i];
         }
+
         for (int i = 1; i < n; i++) {
             p[i][0] = p[i - 1][0] + a[i][0];
         }
+
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 p[i][j] = a[i][j] + p[i - 1][j] + p[i][j - 1] - p[i - 1][j - 1];

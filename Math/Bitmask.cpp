@@ -68,6 +68,7 @@ int idxOfFirstMostLeftBit(int x) {
     return idx;
 }
 
+// 1 ^ 2 ^ 3 ^ ... ^ n
 int computeXOR(int n) {
     if (n % 4 == 0) return n;
     if (n % 4 == 1) return 1;

@@ -1,17 +1,16 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-# define ll long long
 
-bool cmp(const array<int, 3> a, const array<int, 3> b) {
-    return a[1] < b[1];
+bool cmp(const pair<int, int> &a, const pair<int, int> &b) {
+    if (a.second != b.second) return a.second < b.second;
+    return a.first < b.first;
 }
 
 struct cmp {
-    bool operator()(const Node &a, const Node &b) const {
-        if (a.x != b.x) return a.x < b.x;
-        if (a.y != b.y) return a.y < b.y;
-        if (a.z != b.z) return a.z < b.z;
-        return a.idx < b.idx;
+    bool operator()(const array<int, 3> &a, const array<int, 3> &b) const {
+        if (a[0] != b[0]) return a[0] < b[0];
+        if (a[1] != b[1]) return a[1] < b[1];
+        return a[2] < b[2];
     }
 };
 
@@ -19,15 +18,7 @@ void syntax() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    cc(fixed << setprecision(6) << ans);
-
-    sort(v.begin(), v.end(), [](const pair<int, int> &a, const pair<int, int> &b) {
-        return a.first < b.first || (a.first == b.first && a.second > b.second);
-    });
-
-    sort(v.begin(), v.end(), [](const array<int, 3> &a, const array<int, 3> &b) {
-        return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
-    });
+    cout << (fixed << setprecision(6) << ans) << endl;
 
     sort(v.begin(), v.end());
     v.erase(unique(v.begin(), v.end()), v.end());
@@ -55,7 +46,7 @@ void syntax() {
         return max(a, b);
     };
 
-    cc(fun(fun, 0, 0));
+    cout << (fun(fun, 0, 0)) << endl;
 }
 
 __int128 read() {
